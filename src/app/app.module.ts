@@ -12,6 +12,7 @@ import { PersonalComponent } from './componentes/personal/personal.component';
 import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
