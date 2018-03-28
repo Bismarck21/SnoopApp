@@ -11,7 +11,9 @@ import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion
 import { PersonalComponent } from './componentes/personal/personal.component';
 import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado.component';
 import { AuthService } from './servicios/auth.service';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AuthService } from './servicios/auth.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
