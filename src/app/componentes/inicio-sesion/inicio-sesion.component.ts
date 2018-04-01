@@ -11,6 +11,7 @@ export class InicioSesionComponent implements OnInit {
 
   public email: string;
   public password: string;
+  public mensaje: string;
 
   constructor(
     public authservice: AuthService,
@@ -27,6 +28,7 @@ export class InicioSesionComponent implements OnInit {
     }).catch( (err) =>{
       console.log(err);
       this.router.navigate(['/iniciar'])
+      this.mensaje = "Usuario y/o Contraseña incorrectos";
     })
   }
 }
