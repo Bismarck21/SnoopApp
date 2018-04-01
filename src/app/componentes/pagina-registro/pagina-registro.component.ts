@@ -17,8 +17,6 @@ export class PaginaRegistroComponent implements OnInit {
     public router: Router
   ) { }
  
-  
- 
   ngOnInit() {
   }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
+import { auth } from 'firebase/app';
 
 @Component({
   selector: 'app-navegacion',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavegacionComponent implements OnInit {
 
-  constructor() { }
+  public isLogin: boolean;
+  public nombreUsuario: string;
+  public email: string;
+
+  constructor(
+    public authservice: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authservice.getAuth().subscribe(auth => {
+      if (auth) {
+        this.isLogin = true;
+        this.nombreUsuario = auth.displayName;
+        this.email = auth.email;
+      }else{
+        this.isLogin = false;
+      }
+    })
+  }
+
+  onClickLogout() {
+    this.authservice.logout();
   }
 
 }

@@ -6,14 +6,14 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isLogin">
         <a class="nav-link" href="#" routerLink="iniciar">Ingresar</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isLogin">
         <a class="nav-link" href="#" routerLink="registro">Registrarse</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Salir</a>
+      <li class="nav-item active" *ngIf="isLogin">
+        <a class="nav-link" href="#" (click)="onClickLogout()">Salir</a>
       </li>
     </ul>
   </div>
