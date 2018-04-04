@@ -36,4 +36,12 @@ export class InicioSesionComponent implements OnInit {
       this.router.navigate(['/iniciar']);
     })
   }
+
+  onClickGoogleLogin(){
+    this.authservice.loginGoogle()
+    .then((res) => {
+      this.router.navigate(['/personal']);
+    })
+    .catch( err => console.log(err.message));
+  }
 }

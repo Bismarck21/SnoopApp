@@ -12,6 +12,7 @@ export class NavegacionComponent implements OnInit {
   public isLogin: boolean;
   public nombreUsuario: string;
   public email: string;
+  public fotoUsuario: string;
 
   constructor(
     public authservice: AuthService
@@ -23,6 +24,7 @@ export class NavegacionComponent implements OnInit {
         this.isLogin = true;
         this.nombreUsuario = auth.displayName;
         this.email = auth.email;
+        this.fotoUsuario = auth.photoURL;
       }else{
         this.isLogin = false;
       }
