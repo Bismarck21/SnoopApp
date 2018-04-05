@@ -44,4 +44,13 @@ export class InicioSesionComponent implements OnInit {
     })
     .catch( err => console.log(err.message));
   }
+
+  onClickFacebookLogin(){
+    this.authservice.loginFacebook()
+    .then((res) => {
+      this.router.navigate(['/personal']);
+    })
+    .catch( err => console.log(err.message));
+  }
+
 }
