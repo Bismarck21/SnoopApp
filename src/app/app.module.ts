@@ -16,6 +16,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './guards/auth.guard';
+import { AddActividadComponent } from './componentes/add-actividad/add-actividad.component';
+import { AdminComponent } from './componentes/admin/admin.component';
+import { AcercaComponent } from './componentes/acerca/acerca.component';
+import { EditarActividadComponent } from './componentes/editar-actividad/editar-actividad.component';
+import { VerActividadComponent } from './componentes/ver-actividad/ver-actividad.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { AuthGuard } from './guards/auth.guard';
     NavegacionComponent,
     InicioSesionComponent,
     PersonalComponent,
-    NoEncontradoComponent
+    NoEncontradoComponent,
+    AddActividadComponent,
+    AdminComponent,
+    AcercaComponent,
+    EditarActividadComponent,
+    VerActividadComponent
   ],
   imports: [
     BrowserModule,
