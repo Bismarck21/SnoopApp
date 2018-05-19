@@ -6,7 +6,6 @@ export interface ActividadInterface {
     descripcion?: string;
     fecha?: any;
     duracion?: any;
-    temporada?: string;
     participantes?: any;
     evidencia?: any;
     fechaPublicacion?: any;

@@ -45,11 +45,11 @@ export class ActividadService {
     return this.actividad;
    }  
 
-   updateReceta(actividad: ActividadInterface){
+   updateActividad(actividad: ActividadInterface){
     this.actividadDoc = this.afs.doc(`actividades/${actividad.id}`);
     this.actividadDoc.update(actividad);
   }   
-  deleteReceta(actividad: ActividadInterface){
+  deleteActividad(actividad: ActividadInterface){
    this.actividadDoc = this.afs.doc(`actividades/${actividad.id}`);
    this.actividadDoc.delete();
   }
