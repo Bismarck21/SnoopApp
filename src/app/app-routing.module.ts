@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'iniciar', component: InicioSesionComponent},
   {path: 'registro', component: PaginaRegistroComponent},
   {path: 'personal', component: PersonalComponent, canActivate: [AuthGuard]},
-  {path: 'add-actividad', component: AddActividadComponent},
+  {path: 'add-actividad', component: AddActividadComponent, canActivate: [AuthGuard]},
   {path: '**', component: NoEncontradoComponent}
 ];
 

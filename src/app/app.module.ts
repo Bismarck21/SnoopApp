@@ -12,8 +12,10 @@ import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion
 import { PersonalComponent } from './componentes/personal/personal.component';
 import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado.component';
 import { AuthService } from './servicios/auth.service';
+import { ActividadService } from './servicios/actividad.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import {AngularFirestoreModule, AngularFirestore} from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './guards/auth.guard';
 import { AddActividadComponent } from './componentes/add-actividad/add-actividad.component';
@@ -43,9 +45,10 @@ import { VerActividadComponent } from './componentes/ver-actividad/ver-actividad
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     FlashMessagesModule
   ],
-  providers: [AuthService, AuthGuard, FlashMessagesService],
+  providers: [AuthService, AuthGuard, FlashMessagesService, ActividadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
