@@ -1,3 +1,44 @@
-<p>
-  editar-actividad works!
-</p>
+<div class="row">
+    <div class="col-md-6">
+      <a href="" class="btn btn-link">
+        <i class="fa fa-arrow-circle-o-left"></i>Atrás
+      </a>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 mx-auto mt-2">
+      <div class="card">
+        <div class="card-header">Editar Actividad</div>
+        <div class="card-body">
+          <form #formModificar="ngForm" (ngSubmit)="onModificarActividad(formModificar)">
+            <div class="form-group">
+              <label for="titulo">Titulo</label>
+              <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="actividad.titulo">
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <textarea type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="actividad.descripcion"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="fecha">Fecha</label>
+              <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="actividad.fecha">
+            </div>
+            <div class="form-group">
+              <label for="duracion">Duración</label>
+              <input type="time" class="form-control" id="duracion" name="duracion" [(ngModel)]="actividad.duracion">
+            </div>
+            <div class="form-group">
+              <label for="participantes">Participantes</label>
+              <input type="number" class="form-control" id="participantes" name="participantes" [(ngModel)]="actividad.participantes">
+            </div>
+            <div class="form-group">
+                <label for="evidencia">Evidencia</label>
+                <input type="file" class="form-control" id="evidencia" name="evidencia" [(ngModel)]="actividad.evidencia">
+              </div>
+            <input type="submit" value="Modificar" class="btn btn-primary btn-block">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

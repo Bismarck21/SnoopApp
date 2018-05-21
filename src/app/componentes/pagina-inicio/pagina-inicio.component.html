@@ -12,7 +12,7 @@
           <div class="card-body d-flex flex-column align-items-start">
             <h3 class="mb-0"><a href="/ver-actividad/{{actividad.id}}" class="text-dark"> {{actividad.titulo}}</a> </h3>
             <div class="mb-1 text-muted">
-              <span class="badge badge-pill badge-success">{{actividad.fechaPublicacion | date: 'dd-MMM'}}</span>
+              <span class="badge badge-pill badge-success">{{actividad.fechaPublicacion | date: 'dd-MMM'}} por {{actividad.userNombre}}</span>
             </div>
             <div class="mb-1 text-muted">
               Participantes: 
