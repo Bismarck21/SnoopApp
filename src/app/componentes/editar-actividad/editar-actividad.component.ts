@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ActividadInterface } from '../../modelos/actividad';
 import { ActividadService } from '../../servicios/actividad.service';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 
 @Component({
@@ -11,6 +12,13 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./editar-actividad.component.scss']
 })
 export class EditarActividadComponent implements OnInit {
+  public isUp: boolean;
+  selectedFiles: FileList;
+  file: File;
+  imgsrc: any;
+  color: string = 'primary';
+  mode: 'determinate';
+  progressBarValue;
   idActividad: string;
   actividad: ActividadInterface = {
     id: '',
@@ -28,7 +36,8 @@ export class EditarActividadComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private actividadService: ActividadService
+    private actividadService: ActividadService,
+    private storage: AngularFireStorage
   ) { }
 
   ngOnInit() {
@@ -44,6 +53,23 @@ export class EditarActividadComponent implements OnInit {
     value.id = this.idActividad;
     this.actividadService.updateActividad(value);
     this.router.navigate(['/ver-actividad/' + this.idActividad]);
+  }
+
+  chooseFiles(event) {
+    this.selectedFiles = event.target.files;
+    if (this.selectedFiles.item(0))
+      this.uploadpic();  
+      this.isUp = true;
+  }
+
+  uploadpic() {
+    let file = this.selectedFiles.item(0);
+    let uniqkey = 'pic' + Math.floor(Math.random() * 1000000);
+    const uploadTask = this.storage.upload('/Evidencias/' + uniqkey, file);
+    this.imgsrc = uploadTask.downloadURL();
+    uploadTask.percentageChanges().subscribe((value) => {
+      this.progressBarValue = value.toFixed(2);
+    })
   }
 
 }

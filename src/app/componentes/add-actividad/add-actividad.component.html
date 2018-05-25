@@ -25,21 +25,36 @@
             </div>
             <div class="form-group">
               <label for="fecha">Fecha</label>
-              <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="actividad.ingredientes">
+              <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="actividad.fecha">
             </div>
             <div class="form-group">
               <label for="duracion">Duración</label>
               <input type="time" class="form-control" id="duracion" name="duracion" [(ngModel)]="actividad.duracion">
             </div>
+
             <div class="form-group">
               <label for="participantes">Participantes</label>
               <input type="number" class="form-control" id="participantes" name="participantes" [(ngModel)]="actividad.participantes">
             </div>
+
+            <div class="form-group">
+              <label for="imagen">Subir Evidencia a Servidor</label>
+              <p></p>
+              <input #fileInput type="file" (change)="chooseFiles($event)" />
+              <p>
+                  <span *ngIf="!isUp">Primero cargue el archivo<br>
+                  Seguido espere mientras se completa la carga y copie la url en el recuadro de evidencia</span>
+              </p>
+              <span>{{imgsrc | async}}</span>
+            </div>
+
             <div class="form-group">
                 <label for="evidencia">Evidencia</label>
-                <input type="file" class="form-control" name="evidencia" value="upload" id="evidencia" [(ngModel)]="actividad.evidencia"/>
+                <input type="text" class="form-control"  id="evidencia" name="evidencia" [(ngModel)]="actividad.evidencia">
               </div>
+
             <input type="submit" value="Guardar" class="btn btn-primary btn-block">
+
           </form>
         </div>
       </div>
