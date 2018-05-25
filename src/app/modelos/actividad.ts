@@ -8,6 +8,7 @@ export interface ActividadInterface {
     duracion?: any;
     participantes?: any;
     evidencia?: any;
+    tarea?: any;
     fechaPublicacion?: any;
     userId?: string;
     userNombre?: string;

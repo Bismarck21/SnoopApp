@@ -42,17 +42,27 @@
               <p></p>
               <input #fileInput type="file" (change)="chooseFiles($event)" />
               <p>
-                  <span *ngIf="!isUp">Primero cargue el archivo<br>
-                  Seguido espere mientras se completa la carga y copie la url en el recuadro de evidencia</span>
+                <span *ngIf="!isUp">Primero cargue el archivo
+                  <br> Seguido espere mientras se completa la carga y copie la url en el recuadro de evidencia</span>
               </p>
               <span>{{imgsrc | async}}</span>
             </div>
 
             <div class="form-group">
-                <label for="evidencia">Evidencia</label>
-                <input type="text" class="form-control"  id="evidencia" name="evidencia" [(ngModel)]="actividad.evidencia">
-              </div>
+              <label for="evidencia">Evidencia</label>
+              <input type="text" class="form-control" id="evidencia" name="evidencia" [(ngModel)]="actividad.evidencia">
+            </div>
 
+            <div class="form-group">
+              <label for="tareas">Tareas</label>
+              <select multiple="" name="tareas" id="tareas" class="form-control" [(ngModel)]="actividad.tarea">
+                <input type="text">
+                <option>Explicar componentes</option>
+                <option>Evaluar lo aprendido</option>
+                <option>Informar sobre bibliotecas</option>
+              </select>
+            </div>
+            
             <input type="submit" value="Guardar" class="btn btn-primary btn-block">
 
           </form>

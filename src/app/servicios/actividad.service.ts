@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 
 
+
 @Injectable()
 export class ActividadService {
   actividadCollection: AngularFirestoreCollection<ActividadInterface>;
@@ -53,5 +54,5 @@ export class ActividadService {
    this.actividadDoc = this.afs.doc(`actividades/${actividad.id}`);
    this.actividadDoc.delete();
   }
-
+  
 }

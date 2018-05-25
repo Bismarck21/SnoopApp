@@ -9,3 +9,8 @@ strong{
         margin-right: 5px;
     }
 }
+
+.table > tbody > tr:hover {
+    background-color: #F2F2F2;
+    cursor: pointer;
+  }
