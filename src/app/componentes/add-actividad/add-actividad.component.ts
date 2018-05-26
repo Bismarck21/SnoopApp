@@ -4,6 +4,8 @@ import { AuthService } from '../../servicios/auth.service';
 import { ActividadService } from '../../servicios/actividad.service';
 import { Router } from '@angular/router';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { ValueTransformer } from '@angular/compiler/src/util';
+import { PromiseObservable } from 'rxjs/observable/PromiseObservable';
 
 
 @Component({
@@ -44,6 +46,7 @@ export class AddActividadComponent implements OnInit {
   }
 
   onGuardarActividad({value}: {value: ActividadInterface}){ 
+    
     value.fechaPublicacion = (new Date()).getTime();
     this.authService.getAuth().subscribe( user => {
       value.userId = user.uid;
@@ -57,7 +60,6 @@ export class AddActividadComponent implements OnInit {
     this.selectedFiles = event.target.files;
     if (this.selectedFiles.item(0))
       this.uploadpic();  
-      this.isUp = true;
   }
 
   uploadpic() {
@@ -67,7 +69,10 @@ export class AddActividadComponent implements OnInit {
     this.imgsrc = uploadTask.downloadURL();
     uploadTask.percentageChanges().subscribe((value) => {
       this.progressBarValue = value.toFixed(2);
+      this.isUp = true;
+    })
+    uploadTask.downloadURL().subscribe((value) => {
+      this.actividad.evidencia = value;
     })
   }
-
 }

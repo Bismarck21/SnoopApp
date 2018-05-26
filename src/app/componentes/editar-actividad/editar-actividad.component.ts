@@ -70,6 +70,9 @@ export class EditarActividadComponent implements OnInit {
     uploadTask.percentageChanges().subscribe((value) => {
       this.progressBarValue = value.toFixed(2);
     })
+    uploadTask.downloadURL().subscribe((value) => {
+      this.actividad.evidencia = value;
+    })
   }
 
 }

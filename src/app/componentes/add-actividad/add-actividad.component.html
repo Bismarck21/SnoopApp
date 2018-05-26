@@ -14,10 +14,10 @@
       <div class="card">
         <div class="card-header">Nueva Actividad</div>
         <div class="card-body">
-          <form #formGuardar="ngForm" (ngSubmit)="onGuardarActividad(formGuardar)">
+          <form #formGuardar="ngForm" (submit)="onGuardarActividad(formGuardar)">
             <div class="form-group">
               <label for="titulo">Titulo</label>
-              <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="actividad.titulo">
+              <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="actividad.titulo" required>
             </div>
             <div class="form-group">
               <label for="descripcion">Descripción</label>
@@ -25,16 +25,17 @@
             </div>
             <div class="form-group">
               <label for="fecha">Fecha</label>
-              <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="actividad.fecha">
+              <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="actividad.fecha" required>
             </div>
             <div class="form-group">
               <label for="duracion">Duración</label>
-              <input type="time" class="form-control" id="duracion" name="duracion" [(ngModel)]="actividad.duracion">
+              <input type="time" class="form-control" id="duracion" name="duracion" [(ngModel)]="actividad.duracion" required>
             </div>
 
             <div class="form-group">
               <label for="participantes">Participantes</label>
-              <input type="number" class="form-control" id="participantes" name="participantes" [(ngModel)]="actividad.participantes">
+              <input type="number" class="form-control" id="participantes" name="participantes" [(ngModel)]="actividad.participantes" minlength="1"
+                required>
             </div>
 
             <div class="form-group">
@@ -43,27 +44,20 @@
               <input #fileInput type="file" (change)="chooseFiles($event)" />
               <p>
                 <span *ngIf="!isUp">Primero cargue el archivo
-                  <br> Seguido espere mientras se completa la carga y copie la url en el recuadro de evidencia</span>
+                  <br> Por favor espere unos segundos mientras se completa la carga....</span>
               </p>
-              <span>{{imgsrc | async}}</span>
             </div>
 
             <div class="form-group">
-              <label for="evidencia">Evidencia</label>
-              <input type="text" class="form-control" id="evidencia" name="evidencia" [(ngModel)]="actividad.evidencia">
+              <input type="hidden" class="form-control" id="evidencia" name="evidencia" [(ngModel)]="actividad.evidencia">
             </div>
 
             <div class="form-group">
               <label for="tareas">Tareas</label>
-              <select multiple="" name="tareas" id="tareas" class="form-control" [(ngModel)]="actividad.tarea">
-                <input type="text">
-                <option>Explicar componentes</option>
-                <option>Evaluar lo aprendido</option>
-                <option>Informar sobre bibliotecas</option>
-              </select>
+              <textarea type="text" class="form-control" id="tarea" name="tarea" [(ngModel)]="actividad.tarea" required></textarea>
             </div>
-            
-            <input type="submit" value="Guardar" class="btn btn-primary btn-block">
+
+            <input [disabled]="!formGuardar.form.valid" type="submit" value="Guardar" class="btn btn-primary btn-block">
 
           </form>
         </div>
