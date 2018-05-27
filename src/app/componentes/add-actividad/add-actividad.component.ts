@@ -15,6 +15,7 @@ import { PromiseObservable } from 'rxjs/observable/PromiseObservable';
 })
 export class AddActividadComponent implements OnInit {
   public isUp: boolean;
+  public imagen: boolean;
   selectedFiles: FileList;
   file: File;
   imgsrc: any;
