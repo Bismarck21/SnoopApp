@@ -16,7 +16,7 @@ export class VerActividadComponent implements OnInit {
 
   actividad: ActividadInterface = {
     id: '',
-    titulo: '',
+    actividad: '',
     descripcion: '',
     fecha: '',
     duracion: '',

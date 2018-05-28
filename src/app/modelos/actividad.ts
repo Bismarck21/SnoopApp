@@ -2,7 +2,7 @@ import { Time } from "@angular/common";
 
 export interface ActividadInterface {
     id?:string;
-    titulo?: string;
+    actividad?: string;
     descripcion?: string;
     fecha?: any;
     duracion?: any;

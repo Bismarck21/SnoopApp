@@ -22,7 +22,7 @@ export class EditarActividadComponent implements OnInit {
   idActividad: string;
   actividad: ActividadInterface = {
     id: '',
-    titulo: '',
+    actividad: '',
     descripcion: '',
     fecha: '',
     duracion: '',

@@ -24,7 +24,7 @@ export class AddActividadComponent implements OnInit {
   progressBarValue;
   actividad: ActividadInterface = {
     id: '',
-    titulo: '',
+    actividad: '',
     descripcion:'',
     fecha: '',
     duracion: '',
