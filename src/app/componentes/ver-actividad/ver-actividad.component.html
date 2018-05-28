@@ -1,29 +1,59 @@
 <div class="row">
-    <div class="col-md-10 blog-main">
-      <div class="blog-post mt-4">
-        <h1 class="blog-post-title border-bottom">{{actividad.actividad}}</h1>
-        <p class="blog-post-meta">{{actividad.fechaPublicacion  | date: 'dd-MMM'}} Por <a href="#">{{actividad.userNombre}}</a></p>
-        <p>{{actividad.descripcion}}</p>
-        <blockquote>
-          <h4>Fecha</h4>
-          <p>{{actividad.fecha}}</p>
-        </blockquote>
-        <h4>Duración</h4>
-        <p>{{actividad.duracion}}</p>
-        <h4>Participantes</h4>
-        <p>{{actividad.participantes}}</p>
-        <h4>Evidencia</h4>
-        <p><a  class="btn btn-dark" href="{{actividad.evidencia}}" target="_blank">Ver evidencia</a></p>
-        <h4>Tareas realizadas</h4>
-        <p>{{actividad.tarea}}</p>
-        <h4>Grupo</h4>
-        <p>{{actividad.grupo}}</p>
+  <div class="col-md-10 blog-main">
+    <div class="blog-post mt-4">
+      <h1 class="blog-post-title border-bottom">{{actividad.actividad}}</h1>
+      <p class="blog-post-meta">{{actividad.fechaPublicacion | date: 'dd-MMM'}} Por
+        <a href="#">{{actividad.userNombre}}</a>
+      </p>
+      <p>{{actividad.descripcion}}</p>
+      <blockquote>
+        <h4>Fecha</h4>
+        <p>{{actividad.fecha}}</p>
+      </blockquote>
+      <h4>Duración</h4>
+      <p>{{actividad.duracion}}</p>
+      <h4>Participantes</h4>
+      <p>{{actividad.participantes}}</p>
+      <div *ngIf="actividad.evidencia!='' && actividad.evidencia!=empy">
+        <h4>Evidencia 1</h4>
+        <p>
+          <a class="btn btn-dark" href="{{actividad.evidencia}}" target="_blank">Ver evidencia</a>
+        </p>
       </div>
-    </div>
-    <div class="col-md-2">
-      <div class="btn-group pull-right mt-4" *ngIf="idUsuarioLogado == actividad.userId">
-        <a routerLink="/editar-actividad/{{actividad.id}}" class="btn btn-dark">Editar</a>
-        <a  class="btn btn-danger" (click)="onClickDelete()">Borrar</a>
+      <div *ngIf="actividad.evidencia2!='' && actividad.evidencia2!=empy">
+        <h4>Evidencia 2</h4>
+        <p>
+          <a class="btn btn-dark" href="{{actividad.evidencia2}}" target="_blank">Ver evidencia</a>
+        </p>
       </div>
+      <div *ngIf="actividad.evidencia3!='' && actividad.evidencia3!=empy">
+        <h4>Evidencia 3</h4>
+        <p>
+          <a class="btn btn-dark" href="{{actividad.evidencia3}}" target="_blank">Ver evidencia</a>
+        </p>
+      </div>
+      <div *ngIf="actividad.evidencia4!='' && actividad.evidencia4!=empy">
+        <h4>Evidencia 4</h4>
+        <p>
+          <a class="btn btn-dark" href="{{actividad.evidencia4}}" target="_blank">Ver evidencia</a>
+        </p>
+      </div>
+      <div *ngIf="actividad.evidencia5!='' && actividad.evidencia5!=empy">
+        <h4>Evidencia 5</h4>
+        <p>
+          <a class="btn btn-dark" href="{{actividad.evidencia5}}" target="_blank">Ver evidencia</a>
+        </p>
+      </div>
+      <h4>Tareas realizadas</h4>
+      <p>{{actividad.tarea}}</p>
+      <h4>Grupo</h4>
+      <p>{{actividad.grupo}}</p>
     </div>
   </div>
+  <div class="col-md-2">
+    <div class="btn-group pull-right mt-4" *ngIf="idUsuarioLogado == actividad.userId">
+      <a routerLink="/editar-actividad/{{actividad.id}}" class="btn btn-dark">Editar</a>
+      <a class="btn btn-danger" (click)="onClickDelete()">Borrar</a>
+    </div>
+  </div>
+</div>

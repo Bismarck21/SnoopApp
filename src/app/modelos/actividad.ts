@@ -8,6 +8,10 @@ export interface ActividadInterface {
     duracion?: any;
     participantes?: any;
     evidencia?: any;
+    evidencia2?: any;
+    evidencia3?: any;
+    evidencia4?: any;
+    evidencia5?: any;
     tarea?: any;
     grupo?: any;
     fechaPublicacion?: any;

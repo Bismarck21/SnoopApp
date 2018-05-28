@@ -44,12 +44,54 @@
               <p>
                   <img *ngIf="!isUp" src="../../../assets/carga1.PNG" width="250px" height="35px">
               </p>
-            </div>
-           
-            <div class="form-group">
               <input type="hidden" class="form-control" id="evidencia" name="evidencia" [(ngModel)]="actividad.evidencia">
                 <img *ngIf="actividad.evidencia!=''" src="../../../assets/carga2.PNG" width="250px" height="35px">
             </div>
+
+            <div class="form-group" *ngIf="actividad.evidencia!=''">
+              <label for="imagen">Subir Evidencia a Servidor</label>
+              <p></p>
+              <input #fileInput type="file" (change)="chooseFiles2($event)" />
+              <p>
+                  <img *ngIf="!isUp" src="../../../assets/carga1.PNG" width="250px" height="35px">
+              </p>
+              <input type="hidden" class="form-control" id="evidencia2" name="evidencia2" [(ngModel)]="actividad.evidencia2">
+                <img *ngIf="actividad.evidencia2!=''" src="../../../assets/carga2.PNG" width="250px" height="35px">
+            </div>
+
+            <div class="form-group" *ngIf="actividad.evidencia2!=''">
+              <label for="imagen">Subir Evidencia a Servidor</label>
+              <p></p>
+              <input #fileInput type="file" (change)="chooseFiles3($event)" />
+              <p>
+                  <img *ngIf="!isUp" src="../../../assets/carga1.PNG" width="250px" height="35px">
+              </p>
+              <input type="hidden" class="form-control" id="evidencia3" name="evidencia3" [(ngModel)]="actividad.evidencia3">
+                <img *ngIf="actividad.evidencia3!=''" src="../../../assets/carga2.PNG" width="250px" height="35px">
+            </div>
+
+            <div class="form-group" *ngIf="actividad.evidencia3!=''">
+              <label for="imagen">Subir Evidencia a Servidor</label>
+              <p></p>
+              <input #fileInput type="file" (change)="chooseFiles4($event)" />
+              <p>
+                  <img *ngIf="!isUp" src="../../../assets/carga1.PNG" width="250px" height="35px">
+              </p>
+              <input type="hidden" class="form-control" id="evidencia4" name="evidencia4" [(ngModel)]="actividad.evidencia4">
+                <img *ngIf="actividad.evidencia4!=''" src="../../../assets/carga2.PNG" width="250px" height="35px">
+            </div>
+
+            <div class="form-group" *ngIf="actividad.evidencia4!=''">
+              <label for="imagen">Subir Evidencia a Servidor</label>
+              <p></p>
+              <input #fileInput type="file" (change)="chooseFiles5($event)" />
+              <p>
+                  <img *ngIf="!isUp" src="../../../assets/carga1.PNG" width="250px" height="35px">
+              </p>
+              <input type="hidden" class="form-control" id="evidencia5" name="evidencia5" [(ngModel)]="actividad.evidencia5">
+                <img *ngIf="actividad.evidencia5!=''" src="../../../assets/carga2.PNG" width="250px" height="35px">
+            </div>
+
 
             <div class="form-group">
               <label for="tareas">Tareas</label>
