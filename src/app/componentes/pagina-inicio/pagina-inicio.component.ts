@@ -55,12 +55,27 @@ export class PaginaInicioComponent implements OnInit {
     })
   }
 
+  search3($event) {
+    let q = $event.target.value;
+    this.startAt.next(q);
+    this.endAt.next(q + "\uf8ff");
+    Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
+      this.firequeryGrupo(value[0], value[1]).subscribe((actividades) => {
+        this.actividades = actividades;
+      })
+    })
+  }
+
   firequery(start, end) {
-    return this.afs.collection('actividades', ref => ref.limit(8).orderBy('userNombre').startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('actividades', ref => ref.limit(10).orderBy('userNombre').startAt(start).endAt(end)).valueChanges();
   }
 
   firequeryTitulo(start, end) {
-    return this.afs.collection('actividades', ref => ref.limit(8).orderBy('actividad').startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('actividades', ref => ref.limit(10).orderBy('actividad').startAt(start).endAt(end)).valueChanges();
+  }
+
+  firequeryGrupo(start, end) {
+    return this.afs.collection('actividades', ref => ref.limit(10).orderBy('grupo').startAt(start).endAt(end)).valueChanges();
   }
 
 }

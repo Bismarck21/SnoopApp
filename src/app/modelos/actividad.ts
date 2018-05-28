@@ -9,6 +9,7 @@ export interface ActividadInterface {
     participantes?: any;
     evidencia?: any;
     tarea?: any;
+    grupo?: any;
     fechaPublicacion?: any;
     userId?: string;
     userNombre?: string;

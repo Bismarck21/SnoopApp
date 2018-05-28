@@ -22,6 +22,8 @@ export class VerActividadComponent implements OnInit {
     duracion: '',
     participantes: '',
     evidencia: '',
+    tarea: '',
+    grupo: '',
     fechaPublicacion: '',
     userId: '',
     userNombre: '',

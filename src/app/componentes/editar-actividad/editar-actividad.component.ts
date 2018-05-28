@@ -28,6 +28,8 @@ export class EditarActividadComponent implements OnInit {
     duracion: '',
     participantes: '',
     evidencia: '',
+    tarea: '',
+    grupo: '',
     fechaPublicacion: '',
     userId: '',
     userNombre: ''

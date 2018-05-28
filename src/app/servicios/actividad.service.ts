@@ -13,7 +13,7 @@ export class ActividadService {
   actividad: Observable<ActividadInterface>;
   constructor(
     private afs: AngularFirestore) {
-    this.actividadCollection = this.afs.collection('actividades', ref => ref);
+    this.actividadCollection = this.afs.collection('actividades', ref => ref.limit(10));
   }
 
   addNewActividad(actividad: ActividadInterface) {

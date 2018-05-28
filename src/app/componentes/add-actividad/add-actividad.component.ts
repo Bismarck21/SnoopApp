@@ -31,6 +31,7 @@ export class AddActividadComponent implements OnInit {
     participantes: '',
     evidencia: '',
     tarea: '',
+    grupo: '',
     fechaPublicacion:'',
     userId:'',
     userNombre:''
