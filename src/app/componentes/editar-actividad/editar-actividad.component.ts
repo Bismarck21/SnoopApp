@@ -14,6 +14,8 @@ import { AngularFireStorage } from 'angularfire2/storage';
 export class EditarActividadComponent implements OnInit {
   public isUp: boolean;
   selectedFiles: FileList;
+  empy: any;
+  formGuardar: any;
   file: File;
   imgsrc: any;
   color: string = 'primary';

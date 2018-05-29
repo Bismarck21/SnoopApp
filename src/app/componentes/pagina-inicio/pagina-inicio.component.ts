@@ -13,6 +13,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class PaginaInicioComponent implements OnInit {
   filtro: string;
+  filtro2: string;
+  filtro3: string;
   startAt = new Subject();
   endAt = new Subject();
   startobs = this.startAt.asObservable();

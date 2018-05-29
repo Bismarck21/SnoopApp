@@ -13,6 +13,7 @@ export class VerActividadComponent implements OnInit {
 
   idActividad: string;
   idUsuarioLogado: string;
+  empy: any;
 
   actividad: ActividadInterface = {
     id: '',
