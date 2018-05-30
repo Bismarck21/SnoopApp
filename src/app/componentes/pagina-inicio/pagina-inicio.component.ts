@@ -69,15 +69,15 @@ export class PaginaInicioComponent implements OnInit {
   }
 
   firequery(start, end) {
-    return this.afs.collection('actividades', ref => ref.limit(10).orderBy('userNombre').startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('actividades', ref => ref.limit(20).orderBy('userNombre').startAt(start).endAt(end)).valueChanges();
   }
 
   firequeryTitulo(start, end) {
-    return this.afs.collection('actividades', ref => ref.limit(10).orderBy('actividad').startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('actividades', ref => ref.limit(20).orderBy('actividad').startAt(start).endAt(end)).valueChanges();
   }
 
   firequeryGrupo(start, end) {
-    return this.afs.collection('actividades', ref => ref.limit(10).orderBy('grupo').startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('actividades', ref => ref.limit(20).orderBy('grupo').startAt(start).endAt(end)).valueChanges();
   }
 
 }
