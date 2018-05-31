@@ -12,6 +12,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
   styleUrls: ['./pagina-inicio.component.scss']
 })
 export class PaginaInicioComponent implements OnInit {
+  mostrar: number;
   filtro: string;
   filtro2: string;
   filtro3: string;
@@ -28,6 +29,7 @@ export class PaginaInicioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.mostrar = 10;
     this.listarActividades();
   }
 
@@ -78,6 +80,10 @@ export class PaginaInicioComponent implements OnInit {
 
   firequeryGrupo(start, end) {
     return this.afs.collection('actividades', ref => ref.limit(100).orderBy('grupo').startAt(start).endAt(end)).valueChanges();
+  }
+
+  limite($parametro){
+    this.mostrar=$parametro;
   }
 
 }

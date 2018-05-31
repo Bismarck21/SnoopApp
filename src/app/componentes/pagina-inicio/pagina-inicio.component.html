@@ -3,12 +3,12 @@
   <p class="lead">Desarrollo del pensamiento computacional en estudiantes de colegios</p>
   <hr class="my-10">
 
-  <img src="../../../assets/portada.jpg" alt="Ingenieria de Sistemas">
+  <img src="../../../assets/portada.jpg" alt="Ingenieria de Sistemas" width="auto" height="auto">
 
   <h3>BUSQUEDAD AVANZADA</h3>
   <div id="busquedad">
 
-    <span>Propietario:
+    <span>Tutor:
       <input type="text" [(ngModel)]="filtro" (keydown)="search($event)"> &nbsp;&nbsp;&nbsp; Titulo:
       <input type="text" [(ngModel)]="filtro2" (keydown)="search2($event)"> Grupo:
       <input type="text" [(ngModel)]="filtro3" (keydown)="search3($event)">
@@ -16,34 +16,38 @@
 
   </div>
   <hr>
-
+  Actividades a mostrar: 
+  <input type="number" [(ngModel)]="mostrar" checked="limite($parametro)" style="width:40px;height:25px">
+<p></p>
   <div class="row">
-      
-      <div class="col-md-6" *ngFor="let actividad of actividades">
-        <div class="card d-flex flex-column align-items-start">
-          <div class="card-body d-flex flex-column align-items-start">
-            <h3 class="mb-0"><a href="/ver-actividad/{{actividad.id}}" class="text-dark"> {{actividad.actividad.substring(0, 22)}}...</a> </h3>
-            <div class="mb-1 text-muted">
-              <span class="badge badge-pill badge-success">{{actividad.fecha | date: 'dd-MMM'}} por {{actividad.userNombre}}</span>
-            </div>
-            <div class="mb-1 text-muted">
-              Participantes: 
-              <span class="badge badge-pill badge-dark">{{actividad.participantes}}</span>
-            </div>
-            <div class="mb-1 text-muted">
-                Grupo: 
-                <span class="badge badge-pill badge-dark">{{actividad.grupo}}</span>
-              </div>
-            <p class="card-text mb-auto">{{actividad.descripcion.substring(0, 60)}}...</p>
+
+    <div class="col-md-6" *ngFor="let actividad of actividades; let i = index;">
+
+      <div class="card d-flex flex-column align-items-start" *ngIf="i<mostrar">
+        <div class="card-body d-flex flex-column align-items-start">
+          <h3 class="mb-0">
+            <a href="/ver-actividad/{{actividad.id}}" class="text-dark"> {{actividad.actividad.substring(0, 22)}}...</a>
+          </h3>
+          <div class="mb-1 text-muted">
+            <span class="badge badge-pill badge-success">{{actividad.fecha | date: 'dd-MMM'}} por {{actividad.userNombre}}</span>
           </div>
+          <div class="mb-1 text-muted">
+            Participantes:
+            <span class="badge badge-pill badge-dark">{{actividad.participantes}}</span>
+          </div>
+          <div class="mb-1 text-muted">
+            Grupo:
+            <span class="badge badge-pill badge-dark">{{actividad.grupo}}</span>
+          </div>
+          <p class="card-text mb-auto">{{actividad.descripcion.substring(0, 60)}}...</p>
         </div>
       </div>
     </div>
-    <div *ngIf="actividades?.length < 1">
-      <p>No existen actividades</p>
-    </div>
- 
+  </div>
 
+  <div *ngIf="actividades?.length < 1">
+    <p>No existen actividades</p>
+  </div>
 
   <hr class="my-4">
   <p>Ingenieria de Sistemas - Universidad de Pamplona</p>

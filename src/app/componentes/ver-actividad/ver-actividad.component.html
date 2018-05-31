@@ -2,7 +2,7 @@
   <div class="col-md-10 blog-main">
     <div class="blog-post mt-4">
       <h1 class="blog-post-title border-bottom">{{actividad.actividad}}</h1>
-      <p class="blog-post-meta">{{actividad.fechaPublicacion | date: 'dd-MMM'}} Por
+      <p class="blog-post-meta">Publicado: {{actividad.fechaPublicacion | date: 'dd-MMM'}} Por
         <a href="#">{{actividad.userNombre}}</a>
       </p>
       <p>{{actividad.descripcion}}</p>
